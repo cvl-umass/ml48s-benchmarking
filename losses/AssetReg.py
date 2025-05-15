@@ -3,9 +3,9 @@ import torch.nn as nn
 import numpy as np
 from losses.LossWithMask import LossWithMask
 
-class ChecklistReg(LossWithMask):
+class AssetReg(LossWithMask):
     def __init__(self, dataset, alpha=0, eps=0.001, init_val=None):
-        super(ChecklistReg, self).__init__()
+        super(AssetReg, self).__init__()
         self.dataset = dataset
         self.alpha = alpha
         self.eps = eps
