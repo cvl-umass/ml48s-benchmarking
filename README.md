@@ -18,7 +18,10 @@ To enable asset regularization, run with `--asset-reg` and specify the parameter
 
 ## Dataset Organization
 
-We organize the `\datasetname` by images in sets which come from recordings, which we also call clips (`clips.json`) and assets (`assets.json`), respectively. 
+We organize the ML48S by images in sets which come from recordings, which we also call clips (`clips.json`) and assets (`assets.json`), respectively. 
+
+### Image Directories
+Each asset has its own directory where each clip is enumerated sequentially in time. The overall structure of the images is `images/[asset_id]/[clip_num].jpg`.
 
 ### Asset Metadata
 
