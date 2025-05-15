@@ -3,11 +3,10 @@ import os
 import argparse
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
-pp = argparse.ArgumentParser(description='Format L48 metadata.')
-pp.add_argument('--load-path', type=str, default='./data/v2', help='Path to a directory containing a copy of the L48 dataset.')
-pp.add_argument('--save-path', type=str, default='./data/v2', help='Path to output directory.')
+pp = argparse.ArgumentParser(description='Format ML48S metadata.')
+pp.add_argument('--load-path', type=str, default='./data/ml48s', help='Path to a directory containing a copy of the ML48S dataset.')
+pp.add_argument('--save-path', type=str, default='./data/ml48s', help='Path to output directory.')
 pp.add_argument('--save-boxes', type=bool, default=False, action=argparse.BooleanOptionalAction, help='Save box information')
 pp.add_argument('--seed', type=int, default=0, help='np random seed.')
 args = pp.parse_args()

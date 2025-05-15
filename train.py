@@ -22,7 +22,7 @@ from losses.AssetReg import AssetReg
 
 def parse_args(argstring=None):
     model_names = ["resnet50"]
-    dataset_names = ['COCO2014', 'L48']
+    dataset_names = ['COCO2014', 'ML48S']
 
     parser = argparse.ArgumentParser(description='Training')
     parser.add_argument('--data-dir', metavar='DIR', nargs='?', default="data/")
@@ -100,11 +100,11 @@ def parse_args(argstring=None):
                       'from checkpoints.')
 
     num_classes = {
-        'L48': 100,
+        'ML48S': 100,
         'COCO2014': 80,
     }
     avg_positives = {
-        'L48': 1.6 if args.remove_empty else (1.4 if args.remove_unannotated else 0.81),
+        'ML48S': 1.6 if args.remove_empty else (1.4 if args.remove_unannotated else 0.81),
         'COCO2014': 2.9,
     }
     args.num_classes = num_classes[args.dataset]

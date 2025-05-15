@@ -25,11 +25,11 @@ def get_metadata(dataset_name):
             'path_to_dataset': 'data/coco2014',
             'path_to_images': 'data/coco2014'
         }
-    elif dataset_name == 'L48':
+    elif dataset_name == 'ML48S':
         meta = {
             'num_classes': 100,
-            'path_to_dataset': 'data/v2',
-            'path_to_images': 'data/v2'
+            'path_to_dataset': 'data/ml48s',
+            'path_to_images': 'data/ml48s'
         }
     else:
         raise NotImplementedError('Metadata dictionary not implemented.')
@@ -103,7 +103,7 @@ def get_dataset(args):
     '''
     
     # define transforms:
-    tx = get_transforms(flip=('L48' not in args.dataset))
+    tx = get_transforms(flip=('ML48S' not in args.dataset))
     # select and return the right dataset:
     ds = multilabel(args, tx).get_datasets()
     return ds
@@ -127,7 +127,7 @@ class multilabel:
         
         # load data:
         phases = ['train', 'val']
-        if 'L48' in args.dataset:
+        if 'ML48S' in args.dataset:
             phases.append('test')
         source_data = load_data(self.base_path, mask={'train':args.train_set_variant, 'val': args.val_set_variant, 'test': args.val_set_variant}, phases=phases)
         full_data = load_data(self.base_path, mask={'train':'full', 'val': 'full', 'test': 'full'}, phases=phases)
