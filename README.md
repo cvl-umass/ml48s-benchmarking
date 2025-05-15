@@ -16,7 +16,7 @@ The list of methods and their corresponding arguments are given in `losses/get_l
 
 To enable asset regularization, run with `--asset-reg` and specify the parameters `--asset-reg-alpha, asset-reg-eps`.
 
-## Dataset Organization
+## Dataset Organization (Modified from Appendix A.2)
 
 We organize the ML48S by images in sets which come from recordings, which we also call clips (`clips.json`) and assets (`assets.json`), respectively. 
 
