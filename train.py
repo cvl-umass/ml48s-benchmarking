@@ -18,7 +18,7 @@ from sklearn.metrics import precision_recall_curve, average_precision_score
 from datasets.dataset import get_dataset, wrap_dataset
 from losses.get_loss import get_loss_func
 from meters import AverageMeter, ProgressMeter, Summary
-from losses.ChecklistReg import ChecklistReg
+from losses.AssetReg import AssetReg
 
 def parse_args(argstring=None):
     model_names = ["resnet50"]
@@ -73,11 +73,11 @@ def parse_args(argstring=None):
     parser.add_argument("--epl-k", type=float, default=None)
     parser.add_argument("--role-lr-mult", type=float, default=10)
 
-    # Checklist regularization
-    parser.add_argument('--checklist-reg', action=argparse.BooleanOptionalAction, default=False)
-    parser.add_argument('--checklist-reg-alpha', type=float, default=0.0)
-    parser.add_argument('--checklist-reg-eps', type=float, default=0.001)
-    parser.add_argument('--checklist-reg-init-val', type=float, default=None)
+    # Asset regularization
+    parser.add_argument('--asset-reg', action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument('--asset-reg-alpha', type=float, default=0.0)
+    parser.add_argument('--asset-reg-eps', type=float, default=0.001)
+    parser.add_argument('--asset-reg-init-val', type=float, default=None)
 
     # Logging stuff
     parser.add_argument('--job-id', type=int, default=0)
@@ -168,8 +168,8 @@ def main():
     val_loader = wrap_dataset(val_dataset, "val", args)
     test_loader = wrap_dataset(test_dataset, "test", args)
 
-    if args.checklist_reg:
-        reg = ChecklistReg(train_dataset, alpha=args.checklist_reg_alpha, eps=args.checklist_reg_eps, init_val=args.checklist_reg_init_val)
+    if args.asset_reg:
+        reg = AssetReg(train_dataset, alpha=args.asset_reg_alpha, eps=args.asset_reg_eps, init_val=args.asset_reg_init_val)
     else:
         reg = None
 
